@@ -1,0 +1,136 @@
+extends layout
+
+block content
+
+    // Side Navigation Menu End
+    .wrapper
+      .wrapper-inner
+        header.header.with-shadow.header-absolute.header-fixed-on-mobile.header-transparent(data-helper-in-threshold='300', data-helper-out-threshold='500', data-sticky-threshold='300', data-bkg-threshold='300', data-compact-threshold='300')
+          .header-inner
+            .row.nav-bar
+              .column.width-12.nav-bar-inner
+                .logo
+                  .logo-inner
+                    a(href='/')
+                      img(src='images/logo-influencers.png', alt='Warhol Logo')
+                    a(href='/')
+                      img(src='images/logo-influencers.png', alt='Warhol Logo')
+                nav.navigation.nav-block.secondary-navigation.nav-right
+                  ul
+                    li.aux-navigation
+                      // Aux Navigation
+                      a.navigation-show.side-nav-show.nav-icon(href='#')
+                        span.icon-menu
+        // Header End
+        // Content
+        // Header
+        .content.clearfix
+          // Hero Slider
+          .section-block.pt-0.pb-0
+            .hero-slider.tm-slider-container.window-height(data-width='2500', data-height='1600', data-scale-min-height='700')
+              ul.tms-slides
+                li.tms-slide.right(data-image='', data-as-bkg-image='', data-image-wrapper='media-column', data-nav-dark='')
+                  .media-column.width-6
+                  .row
+                    .tms-caption.hero-content.split-hero-content.column.width-5.no-transition(data-no-scale='')
+                      .hero-content-inner.left
+                        .tms-content-scalable
+                          h1.mb-40 You&A Fitness Expert / Coach
+                          p.lead
+                            | Answer fitness related video questions throughly and accur new "micro" coaching clients. 
+                          p.mb-40
+                            | You&A has created a unique platform that allows fitness experts to provide coaching on a micro level for those who don't need or can't afford expensive coaching packages. 
+                          a.lightbox-link.button.rounded.bkg-theme.bkg-hover-green.color-white.color-hover-white(data-content='inline', data-aux-classes='tml-newsletter-modal tml-exit-light rounded', data-toolbar='', data-modal-mode='', data-modal-width='600', data-lightbox-animation='fadeIn', href='#subscribe-modal', style="color:#E1515C") REQUEST ACCESS                        
+                  img(data-src='images/slider/slide-2.jpg', data-retina='', src='images/blank.png', alt='')
+                li.tms-slide.bkg-grey-ultralight.right(data-image='', data-as-bkg-image='', data-image-wrapper='media-column', data-nav-dark='')
+                  .media-column.width-6
+                  .row
+                    .tms-caption.hero-content.split-hero-content.column.width-5.no-transition(data-no-scale='')
+                      .hero-content-inner.left
+                        .tms-content-scalable
+                          h1.mb-40 One on One Video Coaching 
+                          p.lead
+                            | Connect directly with your clients via video 
+                          p
+                            | Avoid writing long and boring emails. Instead, use our in-built camera to record a video answering your clients questions and send it to them instantly from within the app.
+                          a.lightbox-link.button.rounded.bkg-theme.bkg-hover-green.color-white.color-hover-white(data-content='inline', data-aux-classes='tml-newsletter-modal tml-exit-light rounded', data-toolbar='', data-modal-mode='', data-modal-width='600', data-lightbox-animation='fadeIn', href='#subscribe-modal', style="color:#E1515C") REQUEST ACCESS
+                  img(data-src='images/slider/slide-1.jpg', data-retina='', src='images/blank.png', alt='')
+                li.tms-slide(data-image='', data-as-bkg-image='', data-image-wrapper='media-column', data-nav-dark='')
+                  .media-column.width-6
+                  .row
+                    .tms-caption.hero-content.split-hero-content.column.width-5.offset-7.no-transition(data-no-scale='')
+                      .hero-content-inner.left
+                        .tms-content-scalable
+                          h1.mb-40 Drive Revenue
+                          p.lead
+                            | Work with our team to determine a price that encourages questions and values your time.
+                          p
+                            | Answer questions to begin accuring your balance. Use the You&A Cashout functionality to recieve payment instantly.
+                          a.lightbox-link.button.rounded.bkg-theme.bkg-hover-green.color-white.color-hover-white(data-content='inline', data-aux-classes='tml-newsletter-modal tml-exit-light rounded', data-toolbar='', data-modal-mode='', data-modal-width='600', data-lightbox-animation='fadeIn', href='#subscribe-modal', style="color:#E1515C") REQUEST ACCESS
+                  img(data-src='images/slider/slide-3.jpg', data-retina='', src='images/blank.png', alt='')
+
+                li.tms-slide.bkg-grey-ultralight.right(data-image='', data-as-bkg-image='', data-image-wrapper='media-column', data-nav-dark='')
+                  .media-column.width-6
+                  .row
+                    .tms-caption.hero-content.split-hero-content.column.width-10.no-transition(data-no-scale='')
+                      .hero-content-inner.left
+                        .tms-content-scalable
+                          h1.mb-40 Questions?
+
+                          p
+                            |  <b>Where do I sign up to be an expert? </b> <br> You can click the request access button below to request access. <b><br><br>How long are video questions? </b> <br> Video questions can only be up to a maximum of 3 minutes. <br><br><b> How long should a video response be? </b> <br> We encourage influencers to allot as much time as may seem necessary to fully answer a user’s question. However, there is a maximum 15 minute limit on the video response.<br><br><b>What do I do if I don’t want to answer a question? </b> <br> If a question is inappropriate by your standards, please report the question on the video screen and reach out to your You&A representative immediately.<br><br><b>How will I receive payment for my video response? </b> <br> Payment will automatically be transferred to your balance, which can be viewed from the admin panel in the settings tab. </b> <br><br><b>How can I cashout my balance in You&A? </b> <br> In order to cashout, please ensure you have a valid paypal email linked in the admin panel settings tab. Once linked, influencers can click the cashout button to automatically transfer funds from their balance directly into their paypal account.<br><br><b>Do I have to answer questions within a timeframe from receiving them? </b> <br> Generally we suggest answering all questions within 48 hours of receiving them to ensure an excellent user experience. Users will also be rating responses and timeliness can be a factor in their decision.<br><br> If that doesn't answer your question email us at <a href="mailto:info@youna.io?Subject=Hello" target="_top">info@youna.io</a> with any questions or concerns.
+                          a.lightbox-link.button.rounded.bkg-theme.bkg-hover-green.color-white.color-hover-white(data-content='inline', data-aux-classes='tml-newsletter-modal tml-exit-light rounded', data-toolbar='', data-modal-mode='', data-modal-width='600', data-lightbox-animation='fadeIn', href='#subscribe-modal', style="color:#E1515C") REQUEST ACCESS
+                  
+          // Hero Slider End
+          // Subscribe Advanced Modal End
+          script(src='https://api.filestackapi.com/filestack.js')
+          #subscribe-modal.section-block.pt-0.pb-30.background-none.hide
+            // Intro Title Section 2
+            .section-block.intro-title-2-1.xsmall.bkg-grey-ultralight
+              .media-overlay.bkg-black.opacity-03
+              .row
+                .column.width-12(style="background:white")
+                  .title-container
+                    .title-container-inner.center.color-white
+                      img(src='images/logo-influencers.png', alt='Warhol Logo', style="width:250px")
+            // Intro Title Section 2 End
+            // Signup
+            .section-block.pt-60.pb-0
+              .row
+                .column.width-12.center
+                  .signup-form-container
+                    .hidden
+                    .message
+                    .post-everything-automatic
+                      h3 Your form has been submitted! We will reach out to you within the next 24 hours.
+                    .post-everything-manual
+                      h3 Thanks for signing up. One of our associates, will be in touch with within 24 hours regarding the next steps.
+                    .post-everything-update
+                      h3 Your information has been updated.
+                    h6.signout(style="text-align:right") Log Out
+                    .post-auth
+                      h3.post-auth-finish Please fill out the following details to finish signing up.
+                      h3.post-auth-update Please fill out the following details to update them if you would like.
+                      button(type="submit", class="profile_image") Update Profile Picture
+                      form(method="post", id="additional_info_form")
+                        h6.sub_a PayPal Email
+                        input(type="email", name="email", id="paypal_email", placeholder="PayPal Email: jone@doe.com", required)
+                        h6.sub_a Description
+                        textarea(type="text", name="tag_line", class="tag_line", placeholder="Your tagline :  Fitness Expert and a Serial Entrepernuer. Ask me for any sort of advice!", required)
+                        input(type="text", name="token", id="token", style="display:none")
+                        input(type="text", name="profile_url", id="profile_url", style="display:none")
+                        br
+                        br
+                        input(type="submit", name="submit")
+                    .pre-auth
+                      button(class="sign-in", style="color:white;background:#E62117") Sign up with Google
+
+                      p
+                      | By signing up you agree with our <a href="/tos.pdf" target="_blank"> Terms of Service </a> and <a href="/pp.pdf" target="_blank">Privacy Policy</a>.
+            // Signup End
+          // Subscribe Advanced Modal End
+        // Content End
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.0/jquery-ui.js')
+    script(src='https://apis.google.com/js/api.js')
+    script(src="javascripts/access.js")

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    .background.ask-bg
+      .content.home-content
+        img(src='/images/logo.png')
+        div.info-class
+            span.info
+              | What kind of a question do you want to ask? The paid option gurantees a video response, the free one doesn't.
+        .ask-button
+          a.ask.paid(href='/paid')  PAID 
+          a.ask.free(href='/free')  FREE 
+

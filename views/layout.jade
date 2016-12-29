@@ -1,0 +1,80 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(content='width=device-width,initial-scale=1.0,maximum-scale=1.0', name='viewport')
+    meta(name='twitter:widgets:theme', content='light')
+    meta(property='og:title', content='You&A - Question and Answers')
+    meta(property='og:type', content='website')
+    meta(property='og:image', content='Your-Image-Url')
+    meta(property='og:description', content='Fitness Video Questions and Answers')
+    title You&A | Fitness Questions & Answers Platform
+    link(rel='shortcut icon', type='image/x-icon', href='images/theme-mountain-favicon.ico')
+    // Font
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700', rel='stylesheet', type='text/css')
+    // Css
+    link(rel='stylesheet', href='css/core.min.css')
+    link(rel='stylesheet', href='css/skin.css')
+    //if lt IE 9
+      script(type='text/javascript', src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body.shop.home-page
+    aside.side-navigation-wrapper.enter-right(data-no-scrollbar='', data-animation='scale-in')
+      .side-navigation-scroll-pane
+        .side-navigation-inner
+          .side-navigation-header
+            .navigation-hide.side-nav-hide
+              a(href='#')
+                span.icon-cancel.medium
+          nav.side-navigation.center
+            ul
+              li.current
+                a(href='/') Home
+              li
+                a(href='/influencer') Expert
+          .side-navigation-footer.center
+            p.copyright.no-margin-bottom © 2016 You&A LLC
+
+
+    block content
+
+    footer.footer
+      .footer-top
+        .row.flex
+          .column.width-6
+            .widget
+              p
+                | You&A, LLC 
+                br
+                |  265 W37th Street Flr. 22 
+                br
+                |  New York, NY 10018
+                br
+                br
+                | info@youna.io
+          .column.width-4.offset-2.right.left-on-mobile
+            .widget
+              a.button.rounded.medium.bkg-theme.bkg-hover-green.color-white.color-hover-white.mb-10.left(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
+                span.icon-app-store.medium.left
+                span.button-content
+                  small Avaliable on the
+                  | AppStore
+      .footer-bottom
+        .row
+          .column.width-12
+            .footer-bottom-inner
+              p.copyright.pull-left.clear-float-on-mobile
+                | © You&A LLC. All Rights Reserved. 
+                a.scroll-to-top(href='#', data-no-hide='') Back Top
+                a(href='mailto:info@youna.io?Subject=Hello', target='_top') &nbsp;&nbsp;Email Us
+              ul.social-list.list-horizontal.pull-right.clear-float-on-mobile.left
+                li
+                  a(href='#')
+                    span.icon-twitter-with-circle.medium
+                li
+                  a(href='#')
+                    span.icon-facebook-with-circle.medium
+
+// Js
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+script(src='http://maps.googleapis.com/maps/api/js?v=3')
+script(src='js/timber.master.min.js')

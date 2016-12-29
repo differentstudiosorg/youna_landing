@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1, user-scalable=no', name='viewport')
+    meta(content='Ask fitness experts questions, receive video answers', name='description')
+    meta(content='app-id=1167827483, app-argument=youna://', name='apple-itunes-app')
+    meta(content='', name='google-site-verification')
+    meta(property='og:site_name', content='You&A')
+    meta(property='og:title', content='Answer by #{data.question.answerer_name}')
+    meta(property='og:description', content='#{data.creator.tag_line}')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://youna.io/q/#{data.question.question_id}')
+    meta(property='og:video:url', content='#{data.question_url.url}')
+    meta(property='og:video:secure_url', content='#{data.question_url.url}')
+    meta(property='og:video:type', content='video/mp4')
+    meta(property='og:video:width', content='360')
+    meta(property='og:video:height', content='540')
+    meta(name='twitter:card', content='player')
+    meta(name='twitter:site', content='@youna_app')
+    meta(name='twitter:title', content='Checkout this question on youna!')
+    meta(name='twitter:description', content='Awesome answer by the expert.')
+    meta(name='twitter:creator', content='@youna_app')
+    meta(name='twitter:player', content='https://youna.io/q/twitter/#{data.question.question_id}')
+    meta(name='twitter:player:width', content='360')
+    meta(name='twitter:player:height', content='540')
+    meta(name="twitter:image", content="https://dezu86900texk.cloudfront.net/answers/thumbnail/855cce/0_540x810.png")
+    meta(name='twitter:player:stream', content='#{data.question_url.url}')
+    meta(name='twitter:player:stream:content_type', content='video/mp4')
+
+    title #{data.question.answerer_name}'s Answer
+    link(rel='shortcut icon', type='image/x-icon', href='../images/theme-mountain-favicon.ico')
+    // Font
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700', rel='stylesheet', type='text/css')
+    // Css
+    link(rel='stylesheet', href='../css/core.min.css')
+    link(rel='stylesheet', href='../css/skin.css')
+    link(href='http://vjs.zencdn.net/5.8.8/video-js.css', rel='stylesheet')
+    script(src='https://use.fontawesome.com/4d18ed4907.js')
+    //if lt IE 9
+        script(type='text/javascript', src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body.question-body
+        
+        .q-main
+          .q-container
+            .question.q-one
+              .top
+                a.button.rounded.medium.bkg-white.download-app(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
+                  span Download You&A
+              .test
+                .question-top
+                  .q-image
+                    img(src="#{data.creator.profile_pic}")
+                  h6.q-name #{data.question.answerer_name}
+                  h6.q-description #{data.creator.tag_line}
+                video(height='auto', width='300px;', class='q-video', answer="#{data.answer_url.url}")
+                  source(src='#{data.question_url.url}')
+                  | Your browser does not support the video tag.
+                .question-bottom
+                  .q-answer
+                    span
+                    | View Answer 
+                    i.fa.fa-angle-double-right(aria-hidden='true')
+            .q-one.side
+              .q-one-sub
+                a(href='/')
+                    img(src='../images/logo.png', alt='Warhol Logo', class="q-logo")
+                h6.title-small.color-white.q-slogan NO BULLSH*T FITNESS ADVICE
+                p.lead.mb-30.q-subtext(style="font-weight:100") Ask experts questions, get video answers.
+                a.button.rounded.medium.bkg-white.download-app(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
+                  span Download App
+                br
+                .column.width-12(style="padding-right:0px;text-align:center")
+                    input.form-email.form-element.rounded.large.number.text-me-number(type='tel', text-align='center', name='email', placeholder='917-123-45678', tabindex='1', required='', style="width:200px;text-align:center")
+                .column.width-12(style="padding-left:0px")
+                    input.button.width-3.text-app(id="text", type='submit', value='Text me the app')
+            i.fa.fa-play.play(aria-hidden='true')
+        .footer-bottom.q-footer
+            .row
+              .column.width-12
+                .footer-bottom-inner
+                  p.copyright.pull-left.clear-float-on-mobile
+                    | © You&A LLC. All Rights Reserved.
+                  ul.social-list.list-horizontal.pull-right.clear-float-on-mobile.left
+                    li
+                      a(href='#')
+                        span.icon-twitter-with-circle.medium.grey
+                    li
+                      a(href='#')
+                        span.icon-instagram-with-circle.medium.grey
+                    li
+                      a(href='#')
+                        span.icon-facebook-with-circle.medium.grey
+                    li
+                      a(href='mailto:info@youna.io?Subject=Hello')
+                        span.icon-mail-with-circle.medium.grey
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  script(src='../javascripts/access.js')

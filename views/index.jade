@@ -1,0 +1,135 @@
+extends layout
+
+block content
+    .wrapper
+      .wrapper-inner
+        header.header.with-shadow.header-absolute.header-fixed-on-mobile.header-transparent(data-helper-in-threshold='300', data-helper-out-threshold='500', data-sticky-threshold='300', data-bkg-threshold='300', data-compact-threshold='300')
+          .header-inner
+            .row.nav-bar
+              .column.width-12.nav-bar-inner
+                .logo
+                  .logo-inner
+                    a(href='/')
+                      img(src='images/logo.png', alt='Warhol Logo')
+                    a(href='/')
+                      img(src='images/logo.png', alt='Warhol Logo')
+                nav.navigation.nav-block.secondary-navigation.nav-right
+                  ul
+                    li.aux-navigation
+                      // Aux Navigation
+                      a.navigation-show.side-nav-show.nav-icon(href='#')
+                        span.icon-menu
+
+
+        // Header End
+        // Content
+        .content.clearfix
+          // Feature Section 1
+          section.section-block.feature-1.window-height.bkg-theme
+            .row.no-padding-bottom.text-one
+              .column.width-10.offset-1
+                .feature-content
+                  .feature-content-inner.pt-50.pb-80.no-padding-on-mobile
+                    h1.title-large.color-white NO BULLSH*T FITNESS ADVICE
+                    p.lead.mb-30(style="font-weight:100") Ask experts questions, get video answers.
+                    a.button.rounded.medium.bkg-white.download-app(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
+                      span Download App
+                    .row.text-me-container
+                      .column.width-3.offset-3(style="padding-right:0px")
+                        input.form-email.form-element.rounded.large.number.text-me-number(type='tel', text-align='center', name='email', placeholder='917-123-45678', tabindex='1', required='')
+                      .column.width-2(style="padding-left:0px")
+                        input.button.width-3.text-app(id="text", type='submit', value='Text me the app')
+
+            .row
+              .column.width-6.push-3
+                .feature-image.horizon.text-one(data-parallax='direction:vertical;speed:0.25;rotate:none;')
+                  img(src='images/generic/slide-1.png', alt='', width='400')
+          // Feature Section 1 End
+          // Custom Feature Columns
+          section.section-block.replicable-content
+            .row.flex.pu-30
+              .column.width-4
+                .feature-column
+                  span.title-xlarge.pd-60.font-alt-1.opacity-01 01
+                  h4.mb-30 Record a question
+                  p  Use our app to record a video explaining your question in detail. 
+              .column.width-4
+                .feature-column
+                  span.title-xlarge.pd-60.font-alt-1.opacity-01 02
+                  h4.mb-30 Send it to an expert
+                  p
+                    | With the press of a button, send your video question to the expert of your choice.
+              .column.width-4
+                .feature-column
+                  span.title-xlarge.pd-60.font-alt-1.opacity-01 03
+                  h4.mb-30 Get an answer
+                  p Recieve a detailed video response from the expert.
+          // Custom Feature Columns End
+          // Hero 2 Section End
+          // Feature Section 3
+          section#features.section-block.feature-3.overflow-visible
+            .row.flex
+              .column.width-4.right
+                .feature-content
+                  .feature-content-inner
+                    .feature-column.large.center-on-mobile
+                      span.feature-icon.icon-user
+                      .feature-text
+                        h6 View Experts
+                        p
+                          | View a list of approved fitness experts from all over the world
+                    .feature-column.large.center-on-mobile
+                      span.feature-icon.icon-help.medium
+                      .feature-text
+                        h6 Ask Questions
+                        p Easily record a video clip explaining your question using our built in camera. 
+              .column.width-4
+                .feature-column.center
+                  .feature-slider
+                    .feature-slider-inner
+                      .tm-slider-container.content-slider(data-nav-arrows='false', data-animation='fade', data-speed='400', data-nav-dark='')
+                        ul.tms-slides
+                          li.tms-slide(data-image='')
+                            img(data-src='images/generic/slide-1.png', src='images/blank.png', alt='')
+              .column.width-4.left
+                .feature-content
+                  .feature-content-inner
+                    .feature-column.large.center-on-mobile
+                      span.feature-icon.icon-check.medium
+                      .feature-text
+                        h6 Get Answers
+                        p Recieve a detailed video response from the expert. 
+                    .feature-column.large.center-on-mobile
+                      span.feature-icon.icon-star.medium
+                      .feature-text
+                        h6 Rate Answers
+                        p Rate the quality of the answers and let us know what you think. 
+          // Feature Section 3
+          .section-block.signup-2.signup-2-app-1.left.middle
+              .media-overlay.bkg-semi-blue
+              div
+                .row
+                  .column.width-6.horizon(data-animate-in='preset:slideInUpShort;duration:1200ms;delay:200ms;', data-threshold='0.5')
+                    .hero-content
+                      .hero-content-inner.bottom.left
+                        .signup-form-container
+                          .row
+                            .column.width-10
+                              h3.mb-10.color-white-new Know when we are ready!
+                              p.color-white-new
+                                | Subscribe to get an email when we are ready to launch. We take spamming seriously.
+                              if message
+                                h4 You're all set! We will reach out once we are ready.
+                              form(action='/free', method='post', novalidate='')
+                                .row
+                                  .column.width-12
+                                    .field-wrapper
+                                      input.form-email.form-element.rounded.large(type='email', name='email', placeholder='name@yourdomain.com*', tabindex='1', required='')
+                                  .column.width-12
+                                    input.form-submit.button.rounded.large.bkg-theme.bkg-hover-green(type='submit', value='Subscribe', name="submit")
+                                input.form-honeypot.form-element(type='text', name='honeypot')
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.0/jquery-ui.js')
+    script(src='https://apis.google.com/js/api.js')
+    script(src="javascripts/access.js")
+

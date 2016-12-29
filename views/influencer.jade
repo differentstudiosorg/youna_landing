@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 Welcome to You&A
+    h6 If you would like to request Influencer access, please sign up here via your YouTube account. After you're approved, please make sure to sign in with the same gmail account to get admin acces on the app. 
+    img(src='images/youtube.png', class='sign-in')
+
+    if message
+        h1 #message
+
+    form(method="post", action="update_info")
+        input(type="text", name="paypal_email", placeholder="PayPal email")
+        input(type="text", name="tag_line", placeholder="Your tagline")
+        input(type="submit")
+
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.0/jquery-ui.js')
+    script(src='https://apis.google.com/js/api.js')
+    script(src="javascripts/access.js")

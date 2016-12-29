@@ -1,0 +1,100 @@
+doctype html
+html(lang='en-US')
+  head
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1, user-scalable=no', name='viewport')
+    meta(content='Ask fitness experts questions, receive video answers', name='description')
+    meta(content='app-id=1167827483, app-argument=youna://', name='apple-itunes-app')
+    meta(content='', name='google-site-verification')
+    meta(property='og:site_name', content='You&A')
+    meta(property='og:title', content='Answer by #{data.question.answerer_name}')
+    meta(property='og:description', content='#{data.creator.tag_line}')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://youna.io/q/#{data.question.question_id}')
+    meta(property='og:video:url', content='#{data.question_url.url}')
+    meta(property='og:video:secure_url', content='#{data.question_url.url}')
+    meta(property='og:video:type', content='video/mp4')
+    meta(property='og:video:width', content='360')
+    meta(property='og:video:height', content='540')
+    meta(name='twitter:card', content='player')
+    meta(name='twitter:site', content='@youna_app')
+    meta(name='twitter:title', content='Checkout this question on youna!')
+    meta(name='twitter:description', content='Awesome answer by the expert.')
+    meta(name='twitter:creator', content='@youna_app')
+    meta(name='twitter:player', content='https://youna.io/q/twitter/#{data.question.question_id}')
+    meta(name='twitter:player:width', content='360')
+    meta(name='twitter:player:height', content='540')
+    meta(name="twitter:image", content="https://dezu86900texk.cloudfront.net/answers/thumbnail/855cce/0_540x810.png")
+    meta(name='twitter:player:stream', content='#{data.question_url.url}')
+    meta(name='twitter:player:stream:content_type', content='video/mp4')
+    link(href="https://djro44320hipd.cloudfront.net/assets/twitter-embed-ff46c247a6ec777869fb9270cb02807c2242d398feb32d82ac853929f7d5403f.css", rel="stylesheet")
+    script(src='https://src.litix.io/core/2/mux.js')
+    script.
+      var MUX_PROPERTY_KEY = "vTGGCG1NJiehJTl-12vkU3Iau";
+  body
+    .twitter-embed-container
+      .video-wrapper
+        .video-container
+          video#video-embed(poster='', autoplay='autoplay', src='#{data.question_url.url}')
+          .video-controls
+            .volume-control.volume-control--off
+        .cta-container
+          .cta
+            h3 🙈 Preview Ended
+            p Download You&A to watch the full video
+            a.app-store-badge(target='_blank', href='https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8')
+    script.
+      var clickCount = 0;
+      var video = document.getElementsByTagName('video')[0];
+      var volumeControl = document.getElementsByClassName('volume-control')[0];
+      var ctaContainer = document.getElementsByClassName('cta-container')[0];
+      video.volume = 0; // Mute video on load
+      video.addEventListener('ended', function(event) {
+      ctaContainer.className = 'cta-container cta--on';
+      });
+      if (volumeControl) {
+      volumeControl.addEventListener('click', function(event) {
+      if (video.volume === 1) {
+      video.volume = 0;
+      } else {
+      video.volume = 1;
+      }
+      });
+      video.addEventListener('volumechange', function(event) {
+      if (event.target.volume === 0) {
+      volumeControl.className = 'volume-control volume-control--off';
+      } else {
+      volumeControl.className = 'volume-control volume-control--on';
+      }
+      });
+      }
+      if ("false" === 'true') {
+      video.volume = 1;
+      } else {
+      video.addEventListener('click', function(event) {
+      // On first click, unmute the video.
+      if (clickCount === 0) {
+      video.volume = 1;
+      clickCount++;
+      } else {
+      // On subsequent clicks, toggle play
+      if (video.paused) {
+      video.play();
+      } else {
+      video.pause();
+      }
+      }
+      });
+      }
+      if (typeof mux !== 'undefined') {
+      mux.monitor('#video-embed', {
+      debug: false,
+      data: {
+      property_key: MUX_PROPERTY_KEY,
+      page_type: 'iframe',
+      video_id: "855cce",
+      video_title: "What gaps in the market do you see that you would love to see addressed?",
+      video_stream_type: 'on-demand',
+      }
+      });
+      }

@@ -1,0 +1,17 @@
+extends layout
+
+block content 
+    .background.ask-bg
+      .content
+        img(src='/images/logo.png')
+        div.info-class
+           h3 You caught us before we are ready.
+        div.info-class
+            span.info
+               | We are hard at work polishing up the product and getting it ready for release. Soon you will be able to interact with your favorite YouTubers like never before. Please sign up to be one of the first ones to test our platform. 
+
+        if message
+            h4 You're all set! We will reach out once we are ready. 
+        form(method='post', action='/paid', class="form-c")
+          input(type='email', name='email', required='required', placeholder="jane@gmail.com")
+          input(type='submit', name='submit')
