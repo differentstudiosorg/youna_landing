@@ -11,14 +11,12 @@ $('document').ready(function(){
           url : 'https://o2uzqo7yv2.execute-api.us-east-1.amazonaws.com/test/text_app_link?number=' + number,
           dataType : 'json',
           success : function(data) {
-            console.log(data);
+            $('<p> We sent you a text! </p>').insertBefore('.text-me-container');
           },
           error: function(err, data) {
-              alert(err);
+            $('<p> Error sending text. </p>').insertBefore('.text-me-container');
           }
         });
-
-        $('<p> We sent you a text! </p>').insertBefore('.text-me-container');
       } else {
         $('.text-me-number').css({
           'border' : 'solid 1px red'
@@ -28,7 +26,6 @@ $('document').ready(function(){
   });
 
   $('.gallery').on('click', '.gallery_image', function(){
-    console.log("here");
     $('.selected_profile').removeClass('selected_profile');
     $('.profile_picture_text').remove();
     $(this).addClass('selected_profile');
@@ -51,11 +48,11 @@ $('document').ready(function(){
       dataType : 'json',
       data : reqData,
       success : function(data) {
-        console.log("success", data);
+        //console.log("success", data);
         //$('.profile_pic').attr("src", success[0].url);
       },
       error: function(err, data) {
-          alert("there was an error");
+          alert("There was an error");
       }
     });
 
@@ -71,14 +68,12 @@ $('document').ready(function(){
           url : 'https://o2uzqo7yv2.execute-api.us-east-1.amazonaws.com/test/text_app_link?number=' + number,
           dataType : 'json',
           success : function(data) {
-            console.log(data);
+            $('.text-me-container').html('<p> We sent you a text! </p>');
           },
           error: function(err, data) {
-              alert(err);
+            $('.text-me-container').html('<p> There was an error. </p>');
           }
         });
-
-        $('.text-me-container').html('<p> We sent you a text! </p>');
       } else {
         $('.text-me-number').css({
           'border' : 'solid 1px red'
@@ -185,7 +180,6 @@ $('document').ready(function(){
       dataType : 'json',
       data : data,
       success : function(data) {
-        console.log(data.images);
         if (data.name) {
           $('.post-auth').show();
           $("#paypal_email").trigger('input');
@@ -236,7 +230,6 @@ $('document').ready(function(){
         values[field.name] = field.value;
     });
 
-    console.log(values);
     values.token = $('#token').val();
     $('.post-auth').hide();
     $('.message').html("Loading...");
@@ -281,7 +274,6 @@ $('document').ready(function(){
       location:"S3"
     },
     function (blobs) {
-      console.log("SUCCESS", blobs);
       var html = "";
       var urls = [];
       for (var i = 0; i < blobs.length; i++) {
@@ -300,7 +292,6 @@ $('document').ready(function(){
         dataType : 'json',
         data : reqData,
         success : function(data) {
-          console.log("success", data);
           //$('.profile_pic').attr("src", success[0].url);
         },
         error: function(err, data) {
@@ -309,7 +300,7 @@ $('document').ready(function(){
       });
     },
     function onError(error) {
-      console.log("ERROR", error);
+      //console.log("ERROR", error);
     }
   );
 
