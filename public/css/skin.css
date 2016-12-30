@@ -4462,7 +4462,7 @@ only screen and (				min-resolution: 2dppx) {
 	box-shadow: 0 0 7px #ccc;
 }
 .text-app {
-	border-color: rgba(0,0,0,.6) !important;
+	border-color: rgba(0,0,0,.1) !important;
 	color: rgba(0,0,0,.6) !important;
 	font-weight: 100;
 	background-color: white !important;
@@ -4549,7 +4549,8 @@ only screen and (				min-resolution: 2dppx) {
 }
 
 .question-top {
-	background-color: #EAEAEA;
+	background-color: white;
+	border: solid 1px rgba(0,0,0,.1);
 	position: relative;
 	width: 300px;
 	height: 57px;
@@ -4557,7 +4558,8 @@ only screen and (				min-resolution: 2dppx) {
 }
 
 .question-bottom {
-	background-color: #EAEAEA;
+	background-color: white;
+	border: solid 1px rgba(0,0,0,.1);
 	position: relative;
 	top: -7px;
 	padding: 3px;
@@ -4596,6 +4598,41 @@ only screen and (				min-resolution: 2dppx) {
 .grey {
 	color: grey !important;
 }
+
+.pre-auth {
+	min-height: 500px;
+}
+
+.p-lead, .p-sub {
+	text-transform: uppercase;
+}
+
+textarea {
+	min-height: 8rem;
+}
+
+h6 .medium {
+	font-size: 1.2rem !important;
+	padding-right: 6px;
+	padding-left: 3px;
+}
+
+.gallery_image {
+	width: 150px;
+	height: auto;
+	margin-right: 10px;
+}
+
+.selected_profile {
+	border : solid 10px #EA949B;
+	width: 200px;
+	height: auto;
+}
+
+.hide-at-first {
+	display: none;
+}
+
 @media only screen and (max-width: 768px) {
 	.title-large {
 		font-size: 2rem;

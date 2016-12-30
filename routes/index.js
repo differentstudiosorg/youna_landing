@@ -24,6 +24,13 @@ exports.free = function(req, res) {
   res.render('free');
 }
 
+exports.profile = function(req, res) {
+  res.render('profile');
+}
+
+exports.all = function(req, res) {
+  res.redirect('/');
+}
 exports.add_user_to_free = function(req, res) {
     var email = req.body.email;
     if (email != undefined) {

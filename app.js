@@ -21,7 +21,6 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
@@ -33,7 +32,7 @@ app.get('/', routes.index);
 app.get('/ask', routes.ask);
 app.get('/q/:id', question.display)
    .get('/q/twitter/:id', question.twitter);
-app.get('/influencer', influencer.info)
+app.get('/experts', influencer.info)
    .post('/influencer/access', influencer.access)
    .post('/influencer/add', influencer.add_info)
    .post('/influencer/update_profile_picture', influencer.update_profile_picture);
@@ -41,7 +40,10 @@ app.get('/free', routes.free)
    .post('/free', routes.add_user_to_free);
 app.get('/paid', routes.paid)
    .post('/paid', routes.add_user_to_paid);
-
+app.get('/profile', routes.profile);
+app.get('*', function(req, res){
+  res.redirect('/');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

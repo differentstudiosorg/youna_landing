@@ -1,5 +1,7 @@
 $('document').ready(function(){
 
+  $('.message').html("");
+
   $('#text').click(function() {
       var number = $('.number').val();
       var len = number.length;
@@ -16,7 +18,7 @@ $('document').ready(function(){
           }
         });
 
-        $('.text-me-container').html('<p> We sent you a text! </p>');
+        $('<p> We sent you a text! </p>').insertBefore('.text-me-container');
       } else {
         $('.text-me-number').css({
           'border' : 'solid 1px red'
@@ -25,6 +27,39 @@ $('document').ready(function(){
       }
   });
 
+  $('.gallery').on('click', '.gallery_image', function(){
+    console.log("here");
+    $('.selected_profile').removeClass('selected_profile');
+    $('.profile_picture_text').remove();
+    $(this).addClass('selected_profile');
+    var this_url = $(this).attr('src');
+    var urls = [];
+    urls.push(this_url);
+    $('.gallery_image').each(function(item) {
+      var url = $(this).attr('src');
+      if (url != this_url) urls.push(url)
+    })
+
+    var reqData = {
+        images : urls,
+        token : $("#token").val()
+    }
+
+    $.ajax({
+      type : 'POST',
+      url : '/influencer/update_profile_picture',
+      dataType : 'json',
+      data : reqData,
+      success : function(data) {
+        console.log("success", data);
+        //$('.profile_pic').attr("src", success[0].url);
+      },
+      error: function(err, data) {
+          alert("there was an error");
+      }
+    });
+
+  });
 
   $('.text-me-number').keypress(function(e) {
     if (e.which === 13) {
@@ -88,13 +123,6 @@ $('document').ready(function(){
 
   filepicker.setKey("AcRKiEksQSwCstqSrFPvqz");
 
-  $('.post-auth').hide();
-  $('.signout').hide();
-  $('.hidden').hide();
-  $('.message').html("");
-  $('.post-everything-automatic').hide();
-  $('.post-everything-manual').hide();
-  $('.post-everything-update').hide();
   googleApiClientReady = function() {
 
     $('.sign-in').on( 'click touchstart', function() {
@@ -138,7 +166,6 @@ $('document').ready(function(){
       var statistics = { "subscriberCount" : "0"};
       var url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + authResult.access_token;
       $.get(url, function(data, status){
-        console.log(data);
         var picture = "https://s3.amazonaws.com/defaultstuff/default.jpg";
         if (status === "success") picture = data.picture;
         requestCreatorAccess(statistics, authResult, picture);
@@ -148,7 +175,6 @@ $('document').ready(function(){
 
   function requestCreatorAccess(statistics, authResult, picture) {
     $('.message').html("Loading...");
-    console.log(authResult);
     var data = {
       token : authResult.access_token, 
       statistics: statistics
@@ -159,20 +185,29 @@ $('document').ready(function(){
       dataType : 'json',
       data : data,
       success : function(data) {
-        console.log(data);
+        console.log(data.images);
         if (data.name) {
           $('.post-auth').show();
           $("#paypal_email").trigger('input');
           $("input[type='email']").val(data.paypal_email);
-          $("<br><img class = 'profile_pic' src='" + data.profile_url + "' style='width: 150px; height: auto'/><br><br> ").insertBefore(".profile_image");
+          var html = "";
+          for (var i = 0; i < data.images.length; i++) {
+            if (i === 0) html += "<img class='selected_profile gallery_image image-" + i + "' src='" + data.images[i] + "'></img>";
+            else html += "<img class='gallery_image image-" + i + "' src='" + data.images[i] + "'></img>";
+          }
+          $('.gallery').html(html);
           $('.tag_line').val(data.tagline);
+          if (data.facebook_link != "none") $('#facebook_link').val(data.facebook_link);
+          if (data.instagram_link != "none") $('#instagram_link').val(data.instagram_link.replace("https://www.instagram.com/",""));
+          if (data.twitter_link != "none") $('#twitter_link').val(data.twitter_link.replace("https://www.twitter.com/",""));
+          if (data.youtube_link != "none") $('#youtube_link').val(data.youtube_link.replace("https://www.youtube.com/user/",""));
           $('.message').html("");
           $("#token").attr("value", authResult.access_token);
           $('.hidden').val("Update");
           $('.post-auth-finish').hide();
           $('.signout').show();
         } else {
-          $("<br><img class = 'profile_pic' src='" + picture + "' style='width: 150px; height: auto'/><br><br> ").insertBefore(".profile_image");
+          $('.gallery').html("<br><img class='gallery_image selected_profile' src='" + picture + "' style='width: 150px; height: auto'/><br><br> ");
           $('.hidden').val("Finish");
           $('.message').html("");
           $("#token").attr("value", authResult.access_token)
@@ -186,11 +221,21 @@ $('document').ready(function(){
     });
 
   }
+
+  function imagesHTML(urls) {
+    for (var i = 0; i < urls.length; i++) {
+      html += "<img src=" + urls[i] + "></img>";
+    }
+  }
+
   $('#additional_info_form').submit(function(e){
     var values = {};
+
     $.each($(this).serializeArray(), function(i, field) {
+        if (field.value === "") field.value = "none";
         values[field.name] = field.value;
     });
+
     console.log(values);
     values.token = $('#token').val();
     $('.post-auth').hide();
@@ -201,7 +246,6 @@ $('document').ready(function(){
       dataType : 'json',
       data : values,
       success : function(data) {
-        console.log(data);
         if (data.errorMessage) {
             $('.message').html(data.errorMessage);
         } else {
@@ -225,28 +269,39 @@ $('document').ready(function(){
     var image_button = this;
     filepicker.pickAndStore(
     {
+      cropRatio: 10/11,
+      cropForce: true,
       mimetype:"image/*",
-      multiple: false,
-      services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX']
+      multiple: true,
+      services: ['CONVERT','COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX'],
+      conversions: ['crop', 'rotate', 'filter'],
+      maxFiles: 3
     },
     {
       location:"S3"
     },
-    function onSuccess(success) {
-      //$("<br><img src='" + success[0].url + "' style='width: 150px; height: auto'/><br> ").insertAfter(image_button);
+    function (blobs) {
+      console.log("SUCCESS", blobs);
+      var html = "";
+      var urls = [];
+      for (var i = 0; i < blobs.length; i++) {
+        urls.push(blobs[i].url);
+        if (i === 0) html += "<img class='gallery_image selected_profile image-" + i + "' src=" + blobs[i].url + "></img>";
+        else html += "<img class='gallery_image image-" + i + "' src=" + blobs[i].url + "></img>";
+      }
+      $('.gallery').html(html);
       var reqData = {
-        profile_url : success[0].url,
+        images : urls,
         token : $("#token").val()
       }
-      console.log(reqData);
       $.ajax({
         type : 'POST',
         url : '/influencer/update_profile_picture',
         dataType : 'json',
         data : reqData,
         success : function(data) {
-          console.log(data);
-          $('.profile_pic').attr("src", success[0].url);
+          console.log("success", data);
+          //$('.profile_pic').attr("src", success[0].url);
         },
         error: function(err, data) {
             alert("there was an error");
@@ -254,7 +309,7 @@ $('document').ready(function(){
       });
     },
     function onError(error) {
-      alert(error);
+      console.log("ERROR", error);
     }
   );
 
