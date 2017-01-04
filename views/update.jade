@@ -1,0 +1,85 @@
+extends layout
+
+block content 
+
+    .wrapper
+      .wrapper-inner
+        header.header.with-shadow.header-absolute.header-fixed-on-mobile.header-transparent(data-helper-in-threshold='300', data-helper-out-threshold='500', data-sticky-threshold='300', data-bkg-threshold='300', data-compact-threshold='300')
+          .header-inner
+            .row.nav-bar
+              .column.width-12.nav-bar-inner
+                .logo
+                  .logo-inner
+                    a(href='/')
+                      img(src='images/logo-influencers.png', alt='Warhol Logo')
+                    a(href='/')
+                      img(src='images/logo-influencers.png', alt='Warhol Logo')
+                nav.navigation.nav-block.secondary-navigation.nav-right
+                  ul
+                    li.aux-navigation
+                      // Aux Navigation
+                      a.navigation-show.side-nav-show.nav-icon(href='#')
+                        span.icon-menu
+    script(src='https://api.filestackapi.com/filestack.js')
+    .section-block.pt-60.pb-0
+      .row
+        .column.width-12.center
+          .signup-form-container
+            .hidden
+            .message
+            .post-everything-automatic.hide-at-first
+              h3 Your form has been submitted! We will reach out to you within the next 24 hours.
+            .post-everything-manual.hide-at-first
+              h3 Thanks for signing up. One of our associates, will be in touch with within 24 hours regarding the next steps.
+            .post-everything-update.hide-at-first
+              h3 Your information has been updated.
+            h6.signout.hide-at-first(style="text-align:right") Log Out
+            .post-auth.hide-at-first
+              h3.post-auth-finish Please fill out the following details to finish signing up.
+              h3.post-auth-update Please fill out the following details to update them if you would like.
+              .gallery
+              br
+              button(type="submit", class="profile_image") Update Pictures
+              form(method="post", id="additional_info_form")
+                h6.sub_a 
+                  span.icon-paypal.medium
+                  | PayPal Email
+                input(type="email", name="email", id="paypal_email", placeholder="PayPal Email: jone@doe.com", required)
+                h6.sub_a 
+                  span.icon-info.medium
+                  | Description / Tag Line*
+                textarea(type="text", name="tag_line", class="tag_line", placeholder="Been body building for over 4 years now! Ask me for any sort of advice!", required)
+                h6.sub_a 
+                  span.icon-twitter.medium
+                  | Twitter Username
+                input(type="text", name="twitter_link", id="twitter_link", placeholder="jondoe")
+                h6.sub_a 
+                  span.icon-instagram.medium
+                  | Instagram Username
+                input(type="text", name="instagram_link", id="instagram_link", placeholder="jondoe")
+                h6.sub_a 
+                  span.icon-youtube.medium 
+                  | Youtube Username
+                input(type="text", name="youtube_link", id="youtube_link", placeholder="jondoe")
+                h6.sub_a 
+                  span.icon-facebook.medium
+                  | Facebook Link
+                input(type="text", name="facebook_link", id="facebook_link", placeholder="https://www.facebook.com/username")
+                input(type="text", name="token", id="token", style="display:none")
+                input(type="text", name="profile_url", id="profile_url", style="display:none")
+                br
+                br
+                input(type="submit", name="submit", class="button")
+            .pre-auth
+              br
+              br
+              br
+              h3.p-sub Update info/pictures for your You&A Expert Account
+              button(class="sign-in", style="color:white;background:#E62117") Sign up with Google
+              p
+              | By signing up you agree with our <a href="/tos.pdf" target="_blank"> Terms of Service </a> and <a href="/pp.pdf" target="_blank">Privacy Policy</a>.
+
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.0/jquery-ui.js') 
+    script(src='https://apis.google.com/js/api.js')
+    script(src="javascripts/access.js")

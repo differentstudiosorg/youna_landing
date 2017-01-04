@@ -28,9 +28,14 @@ exports.profile = function(req, res) {
   res.render('profile');
 }
 
+exports.update = function(req, res) {
+  res.render('update');
+}
+
 exports.all = function(req, res) {
   res.redirect('/');
 }
+
 exports.add_user_to_free = function(req, res) {
     var email = req.body.email;
     if (email != undefined) {

@@ -42,6 +42,7 @@ app.get('/free', routes.free)
 app.get('/paid', routes.paid)
    .post('/paid', routes.add_user_to_paid);
 app.get('/profile', routes.profile);
+app.get('/update', routes.update)
 app.get('*', function(req, res){
   res.redirect('/');
 });
