@@ -4495,11 +4495,14 @@ only screen and (				min-resolution: 2dppx) {
 
 .q-description {
 	position: relative;
-	top: -35px;
+	top: -27px;
 	left: 60px;
 	font-size: 1rem;
 	font-weight: 400;
 	display: inline-block;
+	width: 200px;
+	height: 20px;
+	overflow: hidden;
 }
 .main {
 	display: block;
@@ -4631,6 +4634,11 @@ h6 .medium {
 
 .hide-at-first {
 	display: none;
+}
+
+.q-image img {
+	width: 50px !important;
+	height: 55px !important;
 }
 
 @media only screen and (max-width: 768px) {
