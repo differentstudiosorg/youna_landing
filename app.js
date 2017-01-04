@@ -33,6 +33,7 @@ app.get('/ask', routes.ask);
 app.get('/q/:id', question.display)
    .get('/q/twitter/:id', question.twitter);
 app.get('/experts', influencer.info)
+   .get('/influencer', influencer.info)
    .post('/influencer/access', influencer.access)
    .post('/influencer/add', influencer.add_info)
    .post('/influencer/update_profile_picture', influencer.update_profile_picture);
