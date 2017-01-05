@@ -13,3 +13,9 @@
     /* height: 30px; */
     padding: 10px;
 }
+
+.q-one i {
+    position: relative;
+    left: 40px;
+    top: -50px;
+}
