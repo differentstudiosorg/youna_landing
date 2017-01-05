@@ -1,0 +1,15 @@
+.test {
+    position: relative;
+    top: -60px;
+}
+
+.top {
+    position: relative;
+    top: -25px;
+}
+
+.download-app {
+    width: 200px;
+    /* height: 30px; */
+    padding: 10px;
+}
