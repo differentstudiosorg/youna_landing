@@ -25,7 +25,7 @@ html(lang='en')
     meta(name='twitter:title', content='Answer By #{data.question.answerer_name}')
     meta(name='twitter:description', content='#{data.creator.tag_line}')
     meta(name='twitter:creator', content='@youna_app')
-    meta(name='twitter:player', content='https://youna.io/q/#{data.question.question_id}')
+    meta(name='twitter:player', content='https://youna.io/q/twitter/#{data.question.question_id}')
     meta(name='twitter:player:width', content='360')
     meta(name='twitter:player:height', content='540')
     meta(name="twitter:image", content="https://s3.amazonaws.com/defaultstuff/logo.png")
@@ -37,9 +37,9 @@ html(lang='en')
     // Font
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700', rel='stylesheet', type='text/css')
     // Css
-    link(rel='stylesheet', href='../css/core.min.css')
-    link(rel='stylesheet', href='../css/skin.css')
-    link(rel='stylesheet', href='../css/twitter-sub.css')
+    link(rel='stylesheet', href='../../css/core.min.css')
+    link(rel='stylesheet', href='../../css/skin.css')
+    link(rel='stylesheet', href='../../css/twitter-sub.css')
     link(href='http://vjs.zencdn.net/5.8.8/video-js.css', rel='stylesheet')
     script(src='https://use.fontawesome.com/4d18ed4907.js')
     script(src='https://api.filestackapi.com/filestack.js')
@@ -70,7 +70,7 @@ html(lang='en')
             .q-one.side
               .q-one-sub
                 a(href='/')
-                    img(src='../images/logo.png', alt='Warhol Logo', class="q-logo")
+                    img(src='../../images/logo.png', alt='Warhol Logo', class="q-logo")
                 h6.title-small.color-white.q-slogan NO BULLSH*T FITNESS ADVICE
                 p.lead.mb-30.q-subtext(style="font-weight:100") Ask experts questions, get video answers.
                 a.button.rounded.medium.bkg-white.download-app(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
