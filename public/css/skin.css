@@ -4503,7 +4503,9 @@ only screen and (				min-resolution: 2dppx) {
 	width: 200px;
 	height: 20px;
 	overflow: hidden;
+	color: rgba(0,0,0,.5);
 }
+
 .main {
 	display: block;
 }
@@ -4638,7 +4640,7 @@ h6 .medium {
 
 .q-image img {
 	width: 50px !important;
-	height: 55px !important;
+	height: 56px !important;
 }
 
 @media only screen and (max-width: 768px) {
