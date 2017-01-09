@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var question = require('./routes/question');
+var user = require('./routes/user');
 var influencer = require('./routes/influencer');
 var http = require('http');
 var path = require('path');
@@ -41,6 +42,7 @@ app.get('/free', routes.free)
    .post('/free', routes.add_user_to_free);
 app.get('/paid', routes.paid)
    .post('/paid', routes.add_user_to_paid);
+app.get('/u/:id', user.display)
 app.get('/profile', routes.profile);
 app.get('/update', routes.update)
 app.get('*', function(req, res){

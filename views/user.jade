@@ -1,0 +1,72 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(content='width=device-width, initial-scale=1, user-scalable=no', name='viewport')
+    meta(content='Ask fitness experts questions, receive video answers', name='description')
+    meta(content='app-id=1167827483, app-argument=youna://', name='apple-itunes-app')
+    meta(content='', name='google-site-verification')
+    meta(property='og:site_name', content='You&A')
+    meta(property='og:title', content='Answer by #{data.creator.name}')
+    meta(property='og:description', content='#{data.creator.tag_line}')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='https://youna.io/u/#{data.creator.id}')
+    meta(property='og:image', content='https://s3.amazonaws.com/defaultstuff/logo.png')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:width', content='360')
+    meta(property='og:image:height', content='540')
+    meta(name='twitter:card', content='player')
+    meta(name='twitter:site', content='@youna_app')
+    meta(name='twitter:title', content='Answer By #{data.creator.name}')
+    meta(name='twitter:description', content='#{data.creator.tag_line}')
+    meta(name='twitter:creator', content='@youna_app')
+
+    title #{data.creator.name}
+    link(rel='shortcut icon', type='image/x-icon', href='../images/theme-mountain-favicon.ico')
+    // Font
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CMontserrat:400,700', rel='stylesheet', type='text/css')
+    // Css
+    link(rel='stylesheet', href='../css/core.min.css')
+    link(rel='stylesheet', href='../css/skin.css')
+    link(href='http://vjs.zencdn.net/5.8.8/video-js.css', rel='stylesheet')
+    script(src='https://use.fontawesome.com/4d18ed4907.js')
+    script(src='https://api.filestackapi.com/filestack.js')
+    //if lt IE 9
+        script(type='text/javascript', src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body.user-body
+    .user-container
+
+      .user
+        .user-logo
+          img(src='../images/logo-influencers.png', alt='Warhol Logo', class="user-logo-image")
+        .user-top
+          img.user-pic(src="#{data.creator.profile_pic}")
+        .user-bottom
+          h4.user-heading #{data.creator.name}
+          h6.user-description #{data.creator.tag_line}
+          a.button.medium.bkg-white.ask-question(target="_blank",href="https://itunes.apple.com/us/app/you-fitness-video-questions/id1167827483?mt=8")
+            span Ask #{data.creator.name} a question
+            span.icon-right-open-small.medium.grey
+
+
+    .footer-bottom.q-footer
+        .row
+          .column.width-12
+            .footer-bottom-inner
+              p.copyright.pull-left.clear-float-on-mobile
+                | © You&A LLC. All Rights Reserved.
+              ul.social-list.list-horizontal.pull-right.clear-float-on-mobile.left
+                li
+                  a(href='https://twitter.com/youna_app')
+                    span.icon-twitter-with-circle.medium.grey
+                li
+                  a(href='https://www.instagram.com/youna_app/')
+                    span.icon-instagram-with-circle.medium.grey
+                li
+                  a(href='https://www.facebook.com/younaapp/')
+                    span.icon-facebook-with-circle.medium.grey
+                li
+                  a(href='mailto:info@youna.io?Subject=Hello')
+                    span.icon-mail-with-circle.medium.grey
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  script(src='../javascripts/access.js')

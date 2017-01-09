@@ -268,7 +268,8 @@ $('document').ready(function(){
       multiple: true,
       services: ['CONVERT','COMPUTER', 'FACEBOOK', 'INSTAGRAM', 'GOOGLE_DRIVE', 'DROPBOX'],
       conversions: ['crop', 'rotate', 'filter'],
-      maxFiles: 3
+      maxFiles: 3,
+      minFiles: 2
     },
     {
       location:"S3"
