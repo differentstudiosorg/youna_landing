@@ -4489,13 +4489,13 @@ only screen and (				min-resolution: 2dppx) {
 	text-transform: uppercase;
 	display: inline-block;
 	position: relative;
-	left: 10px;
-	top: -10px;
+	left: 60px;
+	top: -55px;
 }
 
 .q-description {
 	position: relative;
-	top: -27px;
+	top: -67px;
 	left: 60px;
 	font-size: 1rem;
 	font-weight: 400;
@@ -4514,7 +4514,7 @@ only screen and (				min-resolution: 2dppx) {
 	margin: 0 auto;
 }
 .q-one {
-	display: block;
+	display: inline-block;
 	height: 100%;
 }
 .q-image-u {
@@ -4526,6 +4526,7 @@ only screen and (				min-resolution: 2dppx) {
 .side {
 	text-align: center;
 	position: relative;
+	top: -270px;
 
 }
 .q-logo {
@@ -4569,6 +4570,7 @@ only screen and (				min-resolution: 2dppx) {
 	padding: 3px;
 	font-size: 1.2rem;
 	cursor: pointer;
+	max-width: 300px;
 }
 .q-answer {
 	width: 100%;
@@ -4584,7 +4586,7 @@ only screen and (				min-resolution: 2dppx) {
 
 .play {
     position: relative;
-    top: -350px;
+    top: -500px;
     left: 115px;
     font-size: 100px !important;
     color: white;

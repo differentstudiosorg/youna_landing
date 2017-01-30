@@ -15,8 +15,8 @@ html(lang='en')
     meta(property='og:image:type', content='image/png')
     meta(property='og:image:width', content='360')
     meta(property='og:image:height', content='540')
-    meta(property='og:video:url', content='#{data.question_url.url}')
-    meta(property='og:video:secure_url', content='#{data.question_url.url}')
+    meta(property='og:video:url', content='#{data.answer_url.url}')
+    meta(property='og:video:secure_url', content='#{data.answer_url.url}')
     meta(property='og:video:type', content='video/mp4')
     meta(property='og:video:width', content='360')
     meta(property='og:video:height', content='540')
@@ -29,7 +29,7 @@ html(lang='en')
     meta(name='twitter:player:width', content='360')
     meta(name='twitter:player:height', content='540')
     meta(name="twitter:image", content="https://s3.amazonaws.com/defaultstuff/logo.png")
-    meta(name='twitter:player:stream', content='#{data.question_url.url}')
+    meta(name='twitter:player:stream', content='#{data.answer_url.url}')
     meta(name='twitter:player:stream:content_type', content='video/mp4')
 
     title #{data.question.answerer_name}'s Answer
@@ -58,14 +58,23 @@ html(lang='en')
                     img(src="#{data.creator.profile_pic}")
                   h6.q-name #{data.question.answerer_name}
                   h6.q-description #{data.creator.tag_line}
-                video(height='auto', width='300px;', class='q-video', answer="#{data.answer_url.url}")
-                  source(src='#{data.question_url.url}')
-                  | Your browser does not support the video tag.
+                if isText
+                  video(height='auto', width='300px;', class='q-video', answer="#{data.answer_url.url}")
+                    source(src='#{data.answer_url.url}')
+                    | Your browser does not support the video tag.
+                else 
+                  video(height='auto', width='300px;', class='q-video', answer="#{data.answer_url.url}")
+                    source(src='#{data.question_url.url}')
+                    | Your browser does not support the video tag.
                 .question-bottom
                   .q-answer
-                    span
-                    | View Answer 
-                    i.fa.fa-angle-double-right(aria-hidden='true')
+                    if isText
+                      span
+                      | #{data.question.question_text} - #{data.question.asker_name}
+                    else 
+                      span
+                      | View Answer 
+                      i.fa.fa-angle-double-right(aria-hidden='true')
             .q-one.side
               .q-one-sub
                 a(href='/')
