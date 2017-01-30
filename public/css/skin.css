@@ -4763,5 +4763,19 @@ h6 .medium {
 	}
 }
 
-
+.question-bottom-text {
+	background-color: white;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,.1);
+    position: relative;
+    top: -67px;
+    padding: 3px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    max-width: 280px;
+    left: 10px;
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
+}
 

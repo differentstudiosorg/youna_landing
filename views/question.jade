@@ -8,10 +8,10 @@ html(lang='en')
     meta(content='', name='google-site-verification')
     meta(property='og:site_name', content='You&A')
     meta(property='og:title', content='Answer by #{data.question.answerer_name}')
-    meta(property='og:description', content='#{data.creator.tag_line}')
+    meta(property='og:description', content='#{data.question.question_text} - #{data.question.asker_name}')
     meta(property='og:type', content='website')
     meta(property='og:url', content='https://youna.io/q/#{data.question.question_id}')
-    meta(property='og:image', content='https://s3.amazonaws.com/defaultstuff/logo.png')
+    meta(property='og:image', content='#{data.creator.profile_pic}')
     meta(property='og:image:type', content='image/png')
     meta(property='og:image:width', content='360')
     meta(property='og:image:height', content='540')
@@ -23,7 +23,7 @@ html(lang='en')
     meta(name='twitter:card', content='player')
     meta(name='twitter:site', content='@youna_app')
     meta(name='twitter:title', content='Answer By #{data.question.answerer_name}')
-    meta(name='twitter:description', content='#{data.creator.tag_line}')
+    meta(name='twitter:description', content='#{data.question.question_text} - #{data.question.asker_name}')
     meta(name='twitter:creator', content='@youna_app')
     meta(name='twitter:player', content='https://youna.io/q/twitter/#{data.question.question_id}')
     meta(name='twitter:player:width', content='360')
@@ -66,12 +66,14 @@ html(lang='en')
                   video(height='auto', width='300px;', class='q-video', answer="#{data.answer_url.url}")
                     source(src='#{data.question_url.url}')
                     | Your browser does not support the video tag.
-                .question-bottom
-                  .q-answer
-                    if isText
+                if isText
+                  .question-bottom.question-bottom-text
+                    .q-answer
                       span
                       | #{data.question.question_text} - #{data.question.asker_name}
-                    else 
+                else 
+                  .question-bottom
+                    .q-answer
                       span
                       | View Answer 
                       i.fa.fa-angle-double-right(aria-hidden='true')
