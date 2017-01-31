@@ -4547,7 +4547,9 @@ only screen and (				min-resolution: 2dppx) {
 .q-container {
 	display: block;
 	margin: 0 auto;
-	width: 670px;
+	width: 700px;
+	position: relative;
+	left: 30px;
 }
 
 .q-video {
@@ -4767,8 +4769,8 @@ h6 .medium {
 	background-color: white;
     border-radius: 5px;
     border: solid 1px rgba(0,0,0,.1);
-    position: relative;
-    top: -67px;
+    position: absolute;
+    top: 450px;
     padding: 3px;
     font-size: 1.2rem;
     cursor: pointer;
