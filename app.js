@@ -32,6 +32,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/ask', routes.ask);
 app.get('/q/:id', question.display)
+   .get('/q/:id/the_q', question.display)
    .get('/q/twitter/:id', question.twitter);
 app.get('/experts', influencer.info)
    .get('/influencer', influencer.info)
