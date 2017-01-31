@@ -4490,13 +4490,13 @@ only screen and (				min-resolution: 2dppx) {
 	display: inline-block;
 	position: relative;
 	left: 60px;
-	top: -55px;
+	top: -80px;
 }
 
 .q-description {
 	position: relative;
-	top: -67px;
-	left: 60px;
+    top: -30px;
+    left: -22px;
 	font-size: 1rem;
 	font-weight: 400;
 	display: inline-block;
