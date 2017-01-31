@@ -44,6 +44,44 @@ exports.display = function (req, res) {
     })
 };
 
+exports.display_fb = function (req, res) {
+    var id = req.params.id;
+    request(QUESTION_INFO_URL + id, function(err, response) {
+        if (err) return res.redirect('/');
+        else {
+            var data = JSON.parse(response.body);
+            console.log(data);
+            if (data.answer != undefined) {
+                request(S3_URL + ANSWER + FILENAME_PARAM + data.answer.filename, function(err, response){
+                    if (err) return res.redirect('/');
+                    else {
+                        var answer_url = JSON.parse(response.body);
+                        data.answer_url = answer_url;
+                        if (data.question != undefined ) {
+                            if (data.question.type === 'video') {
+                                request(S3_URL + QUESTION + FILENAME_PARAM + data.question.filename, function(err, response){
+                                    if (err) return res.redirect('/');
+                                    else {
+                                        var question_url = JSON.parse(response.body);
+                                        data.question_url = question_url;
+                                        res.render('question_fb', { data : data });
+                                    }
+                                });
+                            } else {
+                                res.render('question_fb', { data : data, isText: true})
+                            }
+                        } else {
+                            res.render('question_fb', { data : data});
+                        }
+                    }
+                });
+            } else {
+                return res.redirect('/');
+            }
+        }
+    })
+};
+
 exports.twitter = function (req, res) {
     var id = req.params.id;
     request(QUESTION_INFO_URL + id, function(err, response) {
