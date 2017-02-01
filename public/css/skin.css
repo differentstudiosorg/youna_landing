@@ -4489,14 +4489,14 @@ only screen and (				min-resolution: 2dppx) {
 	text-transform: uppercase;
 	display: inline-block;
 	position: relative;
-	left: 60px;
-	top: -80px;
+	left: 5px;
+	top: -15px;
 }
 
 .q-description {
 	position: relative;
     top: -30px;
-    left: -22px;
+    left: 55px;
 	font-size: 1rem;
 	font-weight: 400;
 	display: inline-block;
@@ -4725,12 +4725,15 @@ h6 .medium {
 	text-align: center;
 }
 
+.q-image {
+	display: inline-block;
+}
+
 .question-bottom-text {
 	background-color: white;
     border-radius: 5px;
     border: solid 1px rgba(0,0,0,.1);
-    position: absolute;
-    top: 450px;
+    top: -100px;
     padding: 3px;
     font-size: 1.2rem;
     cursor: pointer;
@@ -4779,11 +4782,6 @@ h6 .medium {
 	.q-container {
 		width: auto;
 		left: 0px;
-	}
-
-	.question-bottom-text {
-		top: 550px;
-		left: 50px;
 	}
 
 	.play {
