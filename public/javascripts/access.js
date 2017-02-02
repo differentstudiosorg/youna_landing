@@ -2,10 +2,6 @@ $('document').ready(function(){
 
   $('.message').html("");
 
-  if ($(".q-answer").text().length < 100) {
-    $(".question-bottom-text").css("top", "510px");
-  }
-
   $('#text').click(function() {
       var number = $('.number').val();
       var len = number.length;
